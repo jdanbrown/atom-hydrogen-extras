@@ -1,0 +1,12 @@
+{
+  "name": "dan-notebook-v0",
+  "main": "lib/index.js",
+  "version": "0.0.0",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
