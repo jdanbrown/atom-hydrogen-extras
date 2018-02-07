@@ -1,1 +1,98 @@
-// TODO TODO Import from ~/.atom/styles.less after iterating fast
+.notebook-code-pending {
+  background: fade(#ffffff, 50%);
+}
+
+.notebook-result-container {
+
+  text-align: left;
+
+  .notebook-result {
+    // border-top: 1px solid white; border-bottom: 1px solid white;
+    // outline: 1px solid white;
+    // padding-left: 2ch;
+
+    border-radius: 0;
+    &.pending {
+      // background: fade(#6871ff, 80%); // Nope...
+      // background: fade(#de935f, 50%); // Nope...
+      // background: fade(#5ffa68, 50%); // Nope...
+      background: fade(#ffffff, 50%); // Good: same as .notebook-code-pending
+    }
+    &.ok {
+      // background: lighten(#000000, 15%); // Too hard to see single lines of output intermixed with code lines
+      background: lighten(#000000, 25%);
+    }
+    &.error {
+      // background: fade(#ff6e67, 80%); // Pretty, but probably too bright to be useful
+      background: fade(#ff6e67, 40%); // Dull, but I think visible enough
+    }
+
+    .notebook-result-text {
+      // Restrict only to text elems (e.g. it messes up df div's if you apply it everywhere inside .notebook-result)
+      white-space: pre;
+    }
+    .notebook-result-text.error {
+      // background: fade(#ff6e67, 80%); // Pretty, but probably too bright to be useful
+      background: fade(#ff6e67, 40%); // Dull, but I think visible enough
+    }
+
+    img, svg {
+      width: 120ch;
+      height: auto;
+      background: white; // For mpl/sns images which have transparent borders, for some reason
+    }
+
+    // Horizontally scroll block decorations wider than the editor
+    //  - TextEditor doesn't get wider with wide decorations. Looks like the code tracks height but not width:
+    //    - https://github.com/atom/atom/blob/572aec7/src/text-editor-component.js#L2558-L2569
+    //  - Block decorations only added recently: https://github.com/atom/atom/issues/6156
+    //    - Looks like the original intent was "full width of the editor"? I wonder if they'd be receptive to a PR?
+    overflow: scroll;
+
+  }
+
+}
+
+// pd.DataFrame / R data.frame
+//  - pd.DataFrame is a table.dataframe, but R data.frame is just a table with no better selector :/
+//  - FIXME This will break any other type of table that jupyter kernels try to give us...
+//  - TODO Figure out a way to only apply the looser selector (table) when running an R kernel
+.notebook-result {
+  table {
+    border: 0px;
+    thead,
+    tbody {
+      tr th {
+        color: darken(#ffffff, 50%);
+      }
+    }
+    tr {
+      th, td {
+        border: 0px;
+        white-space: nowrap;
+        vertical-align: top;
+        &:not(:first-child) {
+          padding: 0 0 0 2ch;
+        }
+      }
+      td {
+        text-align: right; // Assume numbers by default
+        // TODO Mixed left/right alignment on df.T with mixed not-number/number -- how to handle gracefully?
+        // .not-number { text-align: left; } // Left align stuff that isn't numbers
+      }
+      th {
+        // TODO Until we figure out mixed left/right alignment (above)
+        text-align: right;
+      }
+    }
+    tbody tr:nth-child(odd) {
+      // background: fade(#ffffff, 10%);
+      // background: lighten(#000000, 10%);
+      // Neither of these look that great, since the notebook-result bg is already different than the editor bg
+    }
+    // Hack
+    & + p {
+      margin-bottom: 0;
+    }
+  }
+}
