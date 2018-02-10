@@ -1,5 +1,10 @@
-.notebook-code-pending {
-  background: fade(#ffffff, 50%);
+// TODO Any way to set this from editor.preferredLineLength?
+@notebook-width: 120ch;
+
+.notebook-code-highlight {
+  &.pending {
+    background: fade(#ffffff, 50%);
+  }
 }
 
 .notebook-result-container {
@@ -12,32 +17,38 @@
     // padding-left: 2ch;
 
     border-radius: 0;
+    background: lighten(#000000, 25%);
     &.pending {
       // background: fade(#6871ff, 80%); // Nope...
       // background: fade(#de935f, 50%); // Nope...
       // background: fade(#5ffa68, 50%); // Nope...
-      background: fade(#ffffff, 50%); // Good: same as .notebook-code-pending
+      background: fade(#ffffff, 50%); // Good: same as .notebook-code-highlight
     }
     &.ok {
       // background: lighten(#000000, 15%); // Too hard to see single lines of output intermixed with code lines
-      background: lighten(#000000, 25%);
+      // background: lighten(#000000, 25%);
     }
     &.error {
       // background: fade(#ff6e67, 80%); // Pretty, but probably too bright to be useful
-      background: fade(#ff6e67, 40%); // Dull, but I think visible enough
+      // background: fade(#ff6e67, 40%); // Dull, but I think visible enough
+      // background: lighten(#000000, 25%);
+      // border: 0px solid #ff6e67;
+      // border-bottom-width: 1ch;
+      border: 0px solid red;
+      border-left-width: 1ch; // TODO Like a gutter in spirit, but still visible if the user turned them off...
     }
 
     .notebook-result-text {
       // Restrict only to text elems (e.g. it messes up df div's if you apply it everywhere inside .notebook-result)
       white-space: pre;
     }
-    .notebook-result-text.error {
+    .notebook-result-text.stream-stderr {
       // background: fade(#ff6e67, 80%); // Pretty, but probably too bright to be useful
       background: fade(#ff6e67, 40%); // Dull, but I think visible enough
     }
 
     img, svg {
-      width: 120ch;
+      max-width: @notebook-width;
       height: auto;
       background: white; // For mpl/sns images which have transparent borders, for some reason
     }
