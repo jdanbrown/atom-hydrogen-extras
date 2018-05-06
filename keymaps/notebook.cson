@@ -1,0 +1,79 @@
+'atom-workspace':
+  # TODO These don't work in e.g. tree-view anyway? Bummer... Fix myself?
+  'shift-cmd-k': 'hydrogen-extras:toggle-kernel-monitor'
+  # '': 'hydrogen:update-kernels' # Happens automatically when you try sending code for the first time
+
+'atom-text-editor':
+  'shift-cmd-j': 'hydrogen-extras:new-term-with-jupyter-for-current-kernel'
+
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'cmd-]': 'vim-mode-plus:move-to-next-cell'
+  'cmd-[': 'vim-mode-plus:move-to-previous-cell'
+  'cmd-}': 'keystroke cmd-] z t'
+  'cmd-{': 'keystroke cmd-[ z t'
+  '\\ R R': 'vim-mode-plus:run-code'
+  '\\ R A': 'vim-mode-plus:run-code-advance'
+  '\\ R P': 'vim-mode-plus:run-code-inpane'
+  '\\ h t': 'hydrogen-extras:toggle-track-output'
+  '\\ h p': 'hydrogen-extras:toggle-pythonstartup'
+  '\\ h h': 'hydrogen-extras:toggle-highlight-cells'
+  '\\ h f': 'hydrogen-extras:toggle-ipynb-py-file'
+  'z h': 'hydrogen-extras:scroll-to-last-output'
+  'z H': 'hydrogen-extras:jump-to-last-output'
+
+'atom-text-editor:not(.mini):not(.narrow)':
+  'ctrl-c': 'hydrogen-extras:interrupt-kernel'
+  'ctrl-\\': 'hydrogen-extras:shutdown-kernel-and-delete-all-results'
+  'ctrl-cmd-k': 'hydrogen:start-local-kernel'
+  'ctrl-alt-cmd-k': 'hydrogen:connect-to-existing-kernel' # ctrl-cmd-k twice
+  'ctrl-cmd-r': 'hydrogen-extras:run-all-cells'
+  'ctrl-cmd-a': 'hydrogen-extras:run-all-cells-above-and-selected'
+  'ctrl-cmd-b': 'hydrogen-extras:run-all-cells-below-and-selected'
+  'cmd-alt-r': 'hydrogen-extras:run-all-cells'
+  'cmd-alt-a': 'hydrogen-extras:run-all-cells-above-and-selected'
+  'cmd-alt-b': 'hydrogen-extras:run-all-cells-below-and-selected'
+  # 'cmd-alt-a': 'hydrogen-extras:run-all-cells-above' # Default jupyter/rstudio is to omit current (why?)
+  # 'cmd-alt-b': 'hydrogen-extras:run-all-cells-below' # Default jupyter/rstudio is to omit current (why?)
+
+'atom-text-editor.vim-mode-plus.normal-mode:not(.narrow)':
+  'backspace': 'hydrogen-extras:delete-result-at-cursor'
+  'cmd-backspace': 'hydrogen-extras:delete-all-results'
+  # line
+  'enter': 'hydrogen-extras:run-code-line'
+  'ctrl-enter': 'keystroke V \\ R R j'
+  'alt-enter': 'hydrogen-extras:run-code-line-inpane'
+  'alt-ctrl-enter': 'keystroke V \\ R P j'
+  # paragraph
+  'shift-enter': 'keystroke \\ R R a p'
+  'ctrl-shift-enter': 'keystroke \\ R R a p }'
+  'alt-shift-enter': 'keystroke \\ R P a p'
+  'alt-ctrl-shift-enter': 'keystroke \\ R P a p }'
+  # cell
+  'cmd-enter': 'keystroke \\ R R a c'
+  'ctrl-cmd-enter': 'keystroke \\ R R a c cmd-]'
+  'alt-cmd-enter': 'keystroke \\ R P a c'
+  'alt-ctrl-cmd-enter': 'keystroke \\ R P a c cmd-]'
+  'shift-cmd-enter': 'keystroke \\ R R a c cmd-] z z' # run-cell + next-cell + zz
+
+'atom-text-editor.vim-mode-plus.visual-mode:not(.narrow):not(.insert-mode)':
+  'enter': 'keystroke \\ R R'
+  'alt-enter': 'keystroke \\ R P'
+  'shift-enter': 'hydrogen-extras:run-selected-paras'
+  'cmd-enter': 'hydrogen-extras:run-selected-cells'
+  'shift-cmd-enter': 'hydrogen-extras:run-selected-paras'
+  'backspace': 'hydrogen-extras:delete-result-at-cursor'
+  'cmd-backspace': 'hydrogen-extras:delete-all-results'
+
+'atom-text-editor.vim-mode-plus.insert-mode:not(.narrow)':
+  'shift-enter': 'hydrogen-extras:run-code-line'
+  'alt-shift-enter': 'hydrogen-extras:run-code-line-inpane'
+  # 'shift-cmd-enter': 'hydrogen-extras:run-code-paragraph' # TODO run-code-paragraph
+  # 'alt-shift-cmd-enter': 'hydrogen-extras:run-code-paragraph-inpane' # TODO run-code-paragraph
+  'ctrl-backspace': 'hydrogen-extras:delete-result-at-cursor'
+  'ctrl-cmd-backspace': 'hydrogen-extras:delete-all-results'
+
+'atom-text-editor.mini':
+  'ctrl-cmd-k': 'keystroke escape ctrl-alt-cmd-k' # So that ctrl-cmd-k twice toggles
+
+'.notebook--figure':
+  'escape': 'hydrogen-extras:close-and-unzoom'
