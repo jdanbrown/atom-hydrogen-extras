@@ -24,8 +24,9 @@
 'atom-text-editor:not(.mini):not(.narrow)':
   'ctrl-c': 'hydrogen-extras:interrupt-kernel'
   'ctrl-\\': 'hydrogen-extras:shutdown-kernel-and-delete-all-results'
-  'ctrl-cmd-k': 'hydrogen:start-local-kernel'
-  'ctrl-alt-cmd-k': 'hydrogen:connect-to-existing-kernel' # ctrl-cmd-k twice
+  # FIXME Why don't these work?
+  # 'ctrl-cmd-k': 'hydrogen:start-local-kernel'
+  # 'ctrl-alt-cmd-k': 'hydrogen:connect-to-existing-kernel' # ctrl-cmd-k twice
   'ctrl-cmd-r': 'hydrogen-extras:run-all-cells'
   'ctrl-cmd-a': 'hydrogen-extras:run-all-cells-above-and-selected'
   'ctrl-cmd-b': 'hydrogen-extras:run-all-cells-below-and-selected'
@@ -72,8 +73,9 @@
   'ctrl-backspace': 'hydrogen-extras:delete-result-at-cursor'
   'ctrl-cmd-backspace': 'hydrogen-extras:delete-all-results'
 
-'atom-text-editor.mini':
-  'ctrl-cmd-k': 'keystroke escape ctrl-alt-cmd-k' # So that ctrl-cmd-k twice toggles
+# FIXME Why don't these work?
+# 'atom-text-editor.mini':
+#   'ctrl-cmd-k': 'keystroke escape ctrl-alt-cmd-k' # So that ctrl-cmd-k twice toggles
 
 '.notebook--figure':
   'escape': 'hydrogen-extras:close-and-unzoom'
