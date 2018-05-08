@@ -8,5 +8,12 @@
   },
   "dependencies": {},
   "devDependencies": {},
-  "optionalDependencies": {}
+  "optionalDependencies": {},
+  "consumedServices": {
+    "keystroke": {
+      "versions": {
+        "^1.0.0": "consumeKeystroke"
+      }
+    }
+  }
 }
