@@ -23,7 +23,7 @@
 
 'atom-text-editor:not(.mini):not(.narrow)':
   'ctrl-c': 'hydrogen-extras:interrupt-kernel'
-  'ctrl-\\': 'hydrogen-extras:shutdown-kernel-and-delete-all-results'
+  'ctrl-\\': 'hydrogen-extras:kill-kernel'
   # FIXME Why don't these work?
   # 'ctrl-cmd-k': 'hydrogen:start-local-kernel'
   # 'ctrl-alt-cmd-k': 'hydrogen:connect-to-existing-kernel' # ctrl-cmd-k twice
