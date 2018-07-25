@@ -12,7 +12,7 @@ cell-marker-div {
 }
 
 .notebook-code-highlight {
-  // TODO TODO Clean up (+ lib/index.js)
+  // TODO Clean up (+ lib/index.js)
   &.cell-delim.region { // .region and not .highlight [what is .highlight? why do they both exist?]
     // background: #404040; // [TODO vs. border-bottom?] Same as status-bar, tab-bar, etc.
     border-bottom: 1px solid #404040; // [TODO vs. background?] Great UX until you add outputs...
@@ -24,11 +24,11 @@ cell-marker-div {
     // width: 120.5ch; // TODO Desirable? [TODO Why is 120ch too narrow?]
   }
   &.pending {
-    // background: fade(#ffffff, 37.5%); // Between 25% and 50% [TODO TODO Status quo]
-    // background: rgba(44,162,95, .3); // TODO TODO
+    // background: fade(#ffffff, 37.5%); // Between 25% and 50% [TODO Status quo]
+    // background: rgba(44,162,95, .3); // TODO
     // background: rgba(145,207,96, .25);
     // background: rgba(33,102,172, 0.5);
-    background: rgba(31,120,180, 0.4); // Good blue [TODO TODO Trying it out...]
+    background: rgba(31,120,180, 0.4); // Good blue [TODO Trying it out...]
     // background: rgba(51,160,44, 0.35); // Good green
     // background: rgba(255,255,153, 0.3); // Ok yellow
     // background: rgba(255,255,55, 0.35); // Better yellow
@@ -45,7 +45,7 @@ cell-marker-div {
     // padding-left: 2ch;
 
     border-radius: 0;
-    // background: lighten(#000000, 25%); // TODO TODO Status quo, messing with cell delims
+    // background: lighten(#000000, 25%); // TODO Status quo, messing with cell delims
     background: lighten(#000000, 15%);
     background: #202020; // 1/2 of #404040 (.cell-delim background)
     &.pending {
@@ -53,7 +53,7 @@ cell-marker-div {
       // background: fade(#de935f, 50%); // Nope...
       // background: fade(#5ffa68, 50%); // Nope...
       // background: fade(#ffffff, 50%); // Good: same as .notebook-code-highlight [TODO Status quo]
-      background: rgba(255,255,55, 0.35); // Ok yellow [TODO TODO Trying it out...]
+      background: rgba(255,255,55, 0.35); // Ok yellow [TODO Trying it out...]
     }
     &.ok {
       // background: lighten(#000000, 15%); // Too hard to see single lines of output intermixed with code lines

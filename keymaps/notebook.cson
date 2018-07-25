@@ -26,7 +26,8 @@
   'ctrl-\\': 'hydrogen-extras:kill-kernel'
   # FIXME Why don't these work?
   # 'ctrl-cmd-k': 'hydrogen:start-local-kernel'
-  # 'ctrl-alt-cmd-k': 'hydrogen:connect-to-existing-kernel' # ctrl-cmd-k twice
+  # 'ctrl-alt-cmd-k': 'hydrogen:connect-to-remote-kernel'
+  # 'ctrl-shift-cmd-k': 'hydrogen:connect-to-existing-kernel' # Also: ctrl-cmd-k twice
   'ctrl-cmd-r': 'hydrogen-extras:run-all-cells'
   'ctrl-cmd-a': 'hydrogen-extras:run-all-cells-above-and-selected'
   'ctrl-cmd-b': 'hydrogen-extras:run-all-cells-below-and-selected'
@@ -75,7 +76,7 @@
 
 # FIXME Why don't these work?
 # 'atom-text-editor.mini':
-#   'ctrl-cmd-k': 'keystroke escape ctrl-alt-cmd-k' # So that ctrl-cmd-k twice toggles
+#   'ctrl-cmd-k': 'keystroke escape ctrl-shift-cmd-k' # So that ctrl-cmd-k twice toggles
 
 '.notebook--figure':
   'escape': 'hydrogen-extras:close-and-unzoom'
