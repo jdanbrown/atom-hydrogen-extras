@@ -81,7 +81,10 @@ cell-marker-div {
     img, svg {
       max-width: @notebook-width;
       height: auto;
-      background: white; // For mpl/sns images which have transparent borders, for some reason
+      // XXX Allow images to have transparency
+      //  - Motivating example: audio spectrograms as raw images via plt.imshow/pillow
+      //  - Require user to config mpl/sns/etc. to avoid transparency where undesired
+      // background: white; // For mpl/sns images which have transparent borders, for some reason
     }
 
     // Horizontally scroll block decorations wider than the editor
