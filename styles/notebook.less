@@ -3,7 +3,8 @@
 
 // e.g. pydub.AudioSegment._repr_html_
 audio {
-  width: @notebook-width;
+  // width: @notebook-width; // Very spacious when <audio> elems have nothing on either side
+  width: 60ch; // ~Minimal <audio> width, more economical when sharing horizontal space with others, e.g. cells in a df
 }
 
 cell-marker-div {
