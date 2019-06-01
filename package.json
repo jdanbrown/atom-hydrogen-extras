@@ -6,7 +6,9 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "ansi_up": "^4.0.3"
+  },
   "devDependencies": {},
   "optionalDependencies": {},
   "consumedServices": {
