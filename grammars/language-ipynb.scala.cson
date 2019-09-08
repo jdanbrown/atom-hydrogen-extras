@@ -1,6 +1,6 @@
 # Docs:
 # - https://flight-manual.atom.io/hacking-atom/sections/creating-a-grammar/
-#   - In particular, see the links at the bottom ("Where to Go from Here")
+# - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
 #
 # Examples:
 # - https://github.com/atom/language-python
@@ -11,11 +11,26 @@
 # TODO Any simpler with injections?
 # - e.g. https://github.com/nteract/hydrogen/blob/master/grammars/breakpoints.cson
 
-scopeName: 'source.ipynb'
-name: 'Jupyter Notebook (Python)'
+# HACK For scala
+# - Based on ./language-ipynb.cson
+
+scopeName: 'source.ipynb.scala'
+name: 'Jupyter Notebook (Scala)'
 fileTypes: [
   'ipynb'
 ]
+# Match `metadata.kernelspec.language: scala`
+# - Beginning of file
+# - `^%%metadata$`
+# - `^.*$` -- some non-empty lines
+# - `^kernelspec:$`
+# - `^  .*$` -- some non-empty lines starting with `  `
+# - `^  language: scala$`
+# - NOTE Careful
+#   - Easy to crash atom if you match too liberally, e.g. `\\s` matches `\\n` and can go nuts
+#   - `.` doesn't match `\\n`, but `\\s` does
+# In %%metadata
+contentRegex: '(?<!\\n)^%%metadata$(\\n[ \\t]*[^ \\t\\n][^\\n]*)*\\nkernelspec:$(\\n  [ \\t]*[^ \\t\\n][^\\n]*)*\\n  language: scala$'
 patterns: [
 
   # Embedded languages via cell magics (%%foo)
@@ -91,9 +106,9 @@ patterns: [
     name: 'comment.line.notebook-cell-delim'
   }
 
-  # Everything else is python
+  # Everything else is scala
   {
-    include: 'source.python'
+    include: 'source.scala'
   }
 
 ]

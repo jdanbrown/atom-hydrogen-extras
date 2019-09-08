@@ -1,0 +1,99 @@
+# Docs:
+# - https://flight-manual.atom.io/hacking-atom/sections/creating-a-grammar/
+# - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+#
+# Examples:
+# - https://github.com/atom/language-python
+# - https://github.com/JeremyHeleine/language-scilab
+# - https://github.com/DamnedScholar/language-emv
+#   - https://github.com/DamnedScholar/language-emv/blob/master/grammars/language-emv.cson
+#
+# TODO Any simpler with injections?
+# - e.g. https://github.com/nteract/hydrogen/blob/master/grammars/breakpoints.cson
+
+scopeName: 'source.ipynb.python'
+name: 'Jupyter Notebook (Python)'
+fileTypes: [
+  'ipynb'
+]
+patterns: [
+
+  # Embedded languages via cell magics (%%foo)
+  {
+    begin: '^[ \\t]*%%metadata\\b.*$'
+    end: '(?=^[ \\t]*%%.*$)'
+    beginCaptures: 0: name: 'comment.line.notebook-cell-delim.begin-metadata'
+    endCaptures: 0: name: 'comment.line.notebook-cell-delim.end-metadata'
+    name: 'comment.line'
+    # name: 'source.yaml.embedded.ipynb'
+    # patterns: [{include: 'source.yaml'}]
+  }
+  {
+    begin: '^[ \\t]*%%(raw|unknown)\\b.*$'
+    end: '(?=^[ \\t]*%%.*$)'
+    beginCaptures: 0: name: 'comment.line.notebook-cell-delim.begin-raw'
+    endCaptures: 0: name: 'comment.line.notebook-cell-delim.end-raw'
+    name: 'text.plain.embedded.ipynb'
+    patterns: [{include: 'text.plain'}]
+  }
+  {
+    begin: '^[ \\t]*%%(md|markdown)\\b.*$'
+    end: '(?=^[ \\t]*%%.*$)'
+    beginCaptures: 0: name: 'comment.line.notebook-cell-delim.begin-md'
+    endCaptures: 0: name: 'comment.line.notebook-cell-delim.end-md'
+    name: 'text.md.embedded.ipynb'
+    patterns: [{include: 'text.md'}]
+  }
+  {
+    begin: '^[ \\t]*%%(js|javascript)\\b.*$'
+    end: '(?=^[ \\t]*%%.*$)'
+    beginCaptures: 0: name: 'comment.line.notebook-cell-delim.begin-js'
+    endCaptures: 0: name: 'comment.line.notebook-cell-delim.end-js'
+    name: 'source.js.embedded.ipynb'
+    patterns: [{include: 'source.js'}]
+  }
+  {
+    begin: '^[ \\t]*%%html\\b.*$'
+    end: '(?=^[ \\t]*%%.*$)'
+    beginCaptures: 0: name: 'comment.line.notebook-cell-delim.begin-html'
+    endCaptures: 0: name: 'comment.line.notebook-cell-delim.end-html'
+    name: 'text.html.basic.embedded.ipynb'
+    patterns: [{include: 'text.html.basic'}]
+  }
+  {
+    begin: '^[ \\t]*%%latex\\b.*$'
+    end: '(?=^[ \\t]*%%.*$)'
+    beginCaptures: 0: name: 'comment.line.notebook-cell-delim.begin-latex'
+    endCaptures: 0: name: 'comment.line.notebook-cell-delim.end-latex'
+    name: 'source.latex.embedded.ipynb'
+    patterns: [{include: 'source.latex'}]
+  }
+  {
+    begin: '^[ \\t]*%%(sh|bash)\\b.*$'
+    end: '(?=^[ \\t]*%%.*$)'
+    beginCaptures: 0: name: 'comment.line.notebook-cell-delim.begin-shell'
+    endCaptures: 0: name: 'comment.line.notebook-cell-delim.end-shell'
+    name: 'source.shell.embedded.ipynb'
+    patterns: [{include: 'source.shell'}]
+  }
+  {
+    begin: '^[ \\t]*%%R\\b.*$'
+    end: '(?=^[ \\t]*%%.*$)'
+    beginCaptures: 0: name: 'comment.line.notebook-cell-delim.begin-r'
+    endCaptures: 0: name: 'comment.line.notebook-cell-delim.end-r'
+    name: 'source.r.embedded.ipynb'
+    patterns: [{include: 'source.r'}]
+  }
+
+  # Cell delims that aren't cell magics (%%)
+  {
+    match: '^[ \\t]*%%.*$'
+    name: 'comment.line.notebook-cell-delim'
+  }
+
+  # Everything else is python
+  {
+    include: 'source.python'
+  }
+
+]

@@ -1,5 +1,5 @@
 # HACK Copy/paste from https://github.com/atom/language-python/blob/master/settings/language-python.cson
-'.source.ipynb':
+'.source.ipynb.python':
   'editor':
     'autoIndentOnPaste': false
     'softTabs': true

@@ -1,0 +1,20 @@
+# HACK Copy/paste from https://github.com/atom-community/language-scala/blob/master/settings/language-scala.cson
+'.source.ipynb.scala':
+  'editor':
+    'increaseIndentPattern': '(^.*(\\{[^}]*|\\([^)]*)$|^.*\\=\\s*$)'
+    'decreaseIndentPattern': '^\\s*(\\}|\\))'
+    'commentStart': '// '
+'.keyword.other.documentation.scaladoc.scala':
+  'editor':
+    'completions': [
+      'author'
+      'version'
+      'param'
+      'return'
+      'exception'
+      'see'
+      'since'
+      'serial'
+      'deprecated'
+      'link'
+    ]

@@ -85,7 +85,8 @@ cell-marker-div {
       // XXX Allow images to have transparency
       //  - Motivating example: audio spectrograms as raw images via plt.imshow/pillow
       //  - Require user to config mpl/sns/etc. to avoid transparency where undesired
-      // background: white; // For mpl/sns images which have transparent borders, for some reason
+      //  - HACK For scala: re-enabled forcing background to be white i/o transparent
+      background: white; // For mpl/sns images which have transparent borders, for some reason
     }
 
     // Horizontally scroll block decorations wider than the editor
